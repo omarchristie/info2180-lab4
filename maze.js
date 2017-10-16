@@ -3,7 +3,8 @@ function setUpEvent() {
     var loseAll = document.querySelectorAll(".boundary");
     var win = document.getElementById("end");
     var restart = document.getElementById("start");
-    
+    var maze = document.getElementById("maze");
+
     lose.onmouseover = function(){
         lose.setAttribute("class", "boundary youlose");
     }
@@ -30,9 +31,12 @@ function setUpEvent() {
 		for (var i = 0; i < loseAll.length-1; i++) {
 			loseAll[i].setAttribute("class", "boundary");
 		}
-	}
-      
-
+		maze.onmouseleave = function () { //At this point onmouseleave seem easier since onmouse out fires when entering childs.
+			for (var i = 0; i < loseAll.length-1; i++) {
+				loseAll[i].setAttribute("class", "boundary youlose");
+			}
+		}
+	}  
 }
 
 window.onload = function(){
