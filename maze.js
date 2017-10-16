@@ -2,10 +2,9 @@ function setUpEvent() {
     var lose = document.getElementById("boundary1");
     var loseAll = document.querySelectorAll(".boundary");
     var win = document.getElementById("end");
-    //var lose2 = lose.getClass();
-    console.log(lose.onmouseover = function(){});
     var test = "";
-    //console.log(lose2);
+    var restart = document.getElementById("start");
+    
     lose.onmouseover = function(){
         lose.setAttribute("class", "boundary youlose");
     }
@@ -16,8 +15,8 @@ function setUpEvent() {
 			test= "good1";
 			for (var i = 0; i < loseAll.length-1; i++) {
 				loseAll[i].setAttribute("class", "boundary youlose");
-				}
 			}
+		}
 	}
 
 	win.onmouseover = function(){
@@ -25,6 +24,13 @@ function setUpEvent() {
 			console.log("You Lose!!!");
 		} else {
 			console.log("You Win");
+		}
+	}
+	
+	restart.onclick = function() {
+		test= "";
+		for (var i = 0; i < loseAll.length-1; i++) {
+			loseAll[i].setAttribute("class", "boundary");
 		}
 	}
        
